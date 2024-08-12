@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="flex justify-between items-center p-4 bg-white sticky top-0 z-50 shadow-md">
+    <img src="/images/uploads/<%= user.dp %>" class="h-8 w-8 rounded-[50%]" alt="Pinterest Icon">
+    <ul class="flex space-x-4">
+      <a href="/feed"
+        class="py-3 px-4 text-lg hover:bg-gray-800 hover:text-white transition-all rounded cursor-pointer border-[2px] border-black">Feed</a>
+      <a href="/profile"
+        class="py-3 px-4 text-lg hover:bg-gray-800 hover:text-white transition-all rounded cursor-pointer border-[2px] border-black">Profile</a>
+      <a href="/logout"
+        class="py-3 px-4 text-lg hover:bg-gray-800 hover:text-white transition-all rounded cursor-pointer border-[2px] border-black">Logout</a>
+    </ul>
+  </div>
+  <section class="mt-[30px] mb-[20px]">
+    <div class="box1 bg-gray-200 rounded-lg p-2 text-center mx-auto mt-2 w-full sm:w-[350px] sm:rounded-lg">
+      <div class="content my-3 mx-1">
+        <div class="image mx-auto mb-2">
+          <img src="/images/uploads/<%= user.dp %>" alt="Profile Image" class="h-auto w-[120px] rounded-full mx-auto" />
+        </div>
+        <button id="changeimage"
+          class="w-[100px] h-[40px] bg-gray-200 border-2 border-black rounded-lg font-bold hover:tracking-wide transition-all">
+          Change
+        </button>
+        <div class="text">
+          <p class="name text-lg font-bold tracking-wide">
+            <%= user.fullname.toUpperCase() %>
+          </p>
+          <p class="job_title text-xs font-bold text-gray-500 mt-[-2px]">
+            @<%= user.username %>
+          </p>
+          <p class="job_discription text-xs text-gray-500 mx-7 my-3">
+            <%= user.desc %>
+          </p>
+        </div>
+
+        <div class="flex gap-[5px] sm:gap-[0px] flex-col sm:flex-row sm:justify-around mt-5 mx-7">
+          <div>
+            <button id="editbtn"
+              class="w-full sm:w-[130px] h-[40px] bg-gray-200 border-2 border-black rounded-lg font-bold hover:tracking-wide transition-all">
+              Edit
+            </button>
+          </div>
+          <div>
+            <a href="./add">
+              <button
+                class="w-full sm:w-[130px] h-[40px] bg-black text-gray-200 border-none rounded-lg font-bold hover:tracking-wide transition-all">
+                Add new post
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <h1 class="p-[10px] font-semibold text-[20px] text-center">Your pins</h1>
+  <div id="pins" class="grid grid-cols-2 sm:grid-cols-3 gap-[10px] p-[20px]">
+    <% user.posts.forEach((elm)=> {
+      %>
+      <div
+        class="flex flex-col gap-[5px] items-center justify-center overflow-hidden bg-gray-100 p-[5px] rounded-[4px]">
+        <img class="w-[150px] sm:w-[400px] rounded-[7px]" src="/images/uploads/<%= elm.image %>" alt="Post Image">
+        <h1 class="font-semibold text-[18px]">
+          <%= elm.title %>
+        </h1>
+      </div>
+    <% }); %>
+  </div>
+
+  <form hidden action="/fileupload" id="changeimageform" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" id="profileimage" />
+  </form>
+
+  <script>
+    const changeimage = document.getElementById("changeimage");
+    changeimage.addEventListener("click", () => {
+      document.getElementById("profileimage").click();
+    })
+
+    document.getElementById("profileimage").addEventListener("change", () => {
+      document.getElementById("changeimageform").submit();
+    })    
+  </script>
+</body>
+
+</html>

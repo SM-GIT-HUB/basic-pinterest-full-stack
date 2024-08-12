@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center">
+    <div class="flex flex-col items-center justify-center shadow-lg p-[20px]">
+        <form action="/login" method="post" class="flex flex-col w-[350px] sm:w-[350px] items-center">
+            <p class="text-xl sm:text-2xl font-bold mt-5 mb-2 leading-[35px] sm:leading-[40px]">Login with your account</p>
+            <input name="username" type="text" placeholder="Username"
+                class="w-full h-[40px] mb-1 px-3 text-gray-500 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <br />
+
+            <input name="password" type="password" placeholder="Password"
+                class="w-full h-[40px] mb-3 px-3 text-gray-500 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+            <button type="submit"
+            class="py-[5px] w-[160px] sm:py-[5px] bg-red-600 text-white text-lg font-bold rounded-full mb-2 cursor-pointer hover:bg-red-700">Log
+                In</button>
+            <p class="text-sm font-bold my-2">OR</p>
+        </form>
+
+        <h1 class="text-[12px] font-semibold mb-[5px]">Don't have an account?</h1>
+        <a href="/" class="w-full sm:w-[210px] flex justify-center items-center">
+            <button
+            class="py-[5px] w-[160px] sm:py-[5px] bg-red-600 text-white text-lg font-bold rounded-full mb-2 cursor-pointer hover:bg-red-700">
+                Sign Up
+            </button>
+        </a>
+
+    </div>
+</body>
+</html>

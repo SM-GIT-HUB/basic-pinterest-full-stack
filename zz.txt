@@ -1,0 +1,10 @@
+/ -> login and signup
+/profile -> profile and saved posts, and uploaded section
+/logout
+/feed -> all posts
+/click -> post open and option to save
+/board/:boardname -> whole board
+/edit
+/upload
+/save/:pinid
+/delete/:pinid
