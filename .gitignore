@@ -16,7 +16,7 @@ build/
 # Ignore everything in the uploads directory
 uploads/*
 # But not the directory itself
-!uploads/
+# !uploads/
 
 # Editor/IDE configurations
 .vscode/
