@@ -8,3 +8,18 @@
 /upload
 /save/:pinid
 /delete/:pinid
+
+
+structure
+
+pinterest-->
+*bin -> www
+*public->
+**images->
+***uploads-> default.jpg
+*routes->
+**index.js, multer.js, post.js, users.js
+*views->
+**add.ejs, error.ejs, feed.ejs, index.ejs, login.ejs, profile.ejs
+*app.js
+*package.json
